@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-        myrealm = Realm.getDefaultInstance();
         initViews();
         initListeners();
         initObjects();
@@ -68,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void initObjects()
     {
         inputValidation = new InputValidation(activity);
+        myrealm = Realm.getDefaultInstance();
 
     }
 

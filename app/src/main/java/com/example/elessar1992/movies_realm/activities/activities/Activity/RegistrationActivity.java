@@ -57,7 +57,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         getSupportActionBar().hide();
-        myrealm = Realm.getDefaultInstance();
+
 
         initViews();
         initListeners();
@@ -99,6 +99,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     {
         inputValidation = new InputValidation(activity);
         user = new User();
+        myrealm = Realm.getDefaultInstance();
     }
 
     @Override
