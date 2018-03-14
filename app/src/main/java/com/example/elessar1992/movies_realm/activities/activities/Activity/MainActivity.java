@@ -15,11 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.elessar1992.movies_realm.R;
 import com.example.elessar1992.movies_realm.activities.activities.Model.Movie;
 import com.example.elessar1992.movies_realm.activities.activities.Model.MoviesResponse;
+import com.example.elessar1992.movies_realm.activities.activities.Model.User;
 import com.example.elessar1992.movies_realm.activities.activities.api.Client;
 import com.example.elessar1992.movies_realm.activities.activities.api.myService;
 
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
+    private TextView myusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,6 +49,8 @@ public class MainActivity extends AppCompatActivity
 
         toolbar = (Toolbar) findViewById(R.id.navigator_action);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        myusername = (TextView) findViewById(R.id.myusername);
+        myusername.setText("Hello " + this.getIntent().getStringExtra( "USERNAME"));
 
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();

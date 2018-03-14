@@ -148,7 +148,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             return;
         }
 
-        if (checkUser(textInputEditTextEmail.getText().toString().trim(), textInputEditTextUsername.getText().toString().trim())) {
+        if (!checkUser(textInputEditTextEmail.getText().toString().trim(), textInputEditTextPassword.getText().toString().trim())) {
             saveData();
             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
             emptyInputEditText();
@@ -186,12 +186,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         });
     }
 
-    public boolean checkUser(String email, String username)
+    public boolean checkUser(String email, String password)
     {
         RealmResults<User> users = myrealm.where(User.class).findAll();
         for(User myusers:users)
         {
-            if(email.equals(myusers.getEmail()) && username.equals(myusers.getUsername()))
+            if(email.equals(myusers.getEmail()) && password.equals(myusers.getUsername()))
             {
                 return true;
             }

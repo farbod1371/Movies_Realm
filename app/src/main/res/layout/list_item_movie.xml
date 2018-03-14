@@ -67,6 +67,25 @@
             android:layout_toLeftOf="@+id/thumbnail"
             android:layout_toStartOf="@+id/thumbnail" />
 
+        <Button
+            android:textSize="7dp"
+            android:text="Favorite"
+            android:id="@+id/favorite"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/score"
+            android:layout_toLeftOf="@+id/thumbnail"
+            android:layout_toStartOf="@+id/thumbnail" />
+
+        <Button
+            android:textSize="7dp"
+            android:text="Buy"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/favorite"
+            android:layout_toLeftOf="@+id/thumbnail"
+            android:layout_toStartOf="@+id/thumbnail" />
+
 
 
     </RelativeLayout>

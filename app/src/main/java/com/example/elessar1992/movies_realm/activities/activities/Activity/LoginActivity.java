@@ -30,10 +30,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private NestedScrollView nestedScrollView;
 
-    private TextInputLayout textInputLayoutEmail;
+    private TextInputLayout textInputLayoutUsername;
     private TextInputLayout textInputLayoutPassword;
 
-    private TextInputEditText textInputEditTextEmail;
+    private TextInputEditText textInputEditTextUsername;
     private TextInputEditText textInputEditTextPassword;
 
     private AppCompatButton appCompatButtonLogin;
@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private InputValidation inputValidation;
 
     private Realm myrealm;
+    private User user;
 
 
     @Override
@@ -66,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initObjects()
     {
+        user = new User();
         inputValidation = new InputValidation(activity);
         myrealm = Realm.getDefaultInstance();
 
@@ -76,10 +78,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
-        textInputLayoutEmail = (TextInputLayout) findViewById(R.id.textInputLayoutEmail);
+        textInputLayoutUsername = (TextInputLayout) findViewById(R.id.textInputLayoutUsername);
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
 
-        textInputEditTextEmail = (TextInputEditText) findViewById(R.id.textInputEditTextEmail);
+        textInputEditTextUsername = (TextInputEditText) findViewById(R.id.textInputEditTextUsername);
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
 
         appCompatButtonLogin = (AppCompatButton) findViewById(R.id.appCompatButtonLogin);
@@ -103,7 +105,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intentRegister);
                 break;
             case R.id.appCompatShowAllUsers:
-                Intent showAllUsers = new Intent(getApplicationContext(), MainActivity.class);
+                Intent showAllUsers = new Intent(getApplicationContext(), ShowAllUserActivity.class);
                 startActivity(showAllUsers);
                 break;
         }
@@ -111,28 +113,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void verifyFromSQLite()
     {
-        if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
+        if (!inputValidation.isInputEditTextFilled(textInputEditTextUsername, textInputLayoutUsername, getString(R.string.error_message_email))) {
             return;
         }
-        if (!inputValidation.isInputEditTextEmail(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
-            return;
-        }
+
         if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_email))) {
             return;
         }
 
-        if (checkUser(textInputEditTextEmail.getText().toString().trim()
-                , textInputEditTextPassword.getText().toString().trim())) {
+        if (checkUser(textInputEditTextUsername.getText().toString().trim()
+                , textInputEditTextPassword.getText().toString().trim()))
+        {
 
-
-            /*Intent accountsIntent = new Intent(activity, UserActivity.class);
-            accountsIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
-            emptyInputEditText();
-            startActivity(accountsIntent);*/
             Intent accountsIntent = new Intent(activity, MainActivity.class);
+            accountsIntent.putExtra("USERNAME", textInputEditTextUsername.getText().toString().trim());
             emptyInputEditText();
             startActivity(accountsIntent);
-
 
         }
         else
@@ -142,12 +138,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public boolean checkUser(String email, String password)
+    public boolean checkUser(String username, String password)
     {
         RealmResults<User> users = myrealm.where(User.class).findAll();
         for(User myusers:users)
         {
-            if(email.equals(myusers.getUsername()) && password.equals(myusers.getPassword()))
+            if(username.equals(myusers.getUsername()) && password.equals(myusers.getPassword()))
             {
                 return true;
             }
@@ -158,7 +154,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void emptyInputEditText()
     {
-        textInputEditTextEmail.setText(null);
+        textInputEditTextUsername.setText(null);
         textInputEditTextPassword.setText(null);
     }
 }

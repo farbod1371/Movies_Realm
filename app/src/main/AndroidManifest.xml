@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.elessar1992.movies_realm">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".activities.activities.Activity.MyApplication"
         android:allowBackup="true"
