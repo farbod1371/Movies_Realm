@@ -164,7 +164,19 @@ public class MainActivity extends AppCompatActivity
                 int statusCode = response.code();
                 List<Movie> movies = response.body().getResults();
                 Log.d(Tag, "my responce is .. " + response.body().getResults().get(0).getBackdrop_path());
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext(), new ClickListener() {
+                    @Override
+                    public void onPositionClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onLongClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
 
             @Override
@@ -188,7 +200,19 @@ public class MainActivity extends AppCompatActivity
                 int statusCode = response.code();
                 List<Movie> movies = response.body().getResults();
                 Log.d(Tag, "my responce is .. " + response.body().getResults().get(0).getBackdrop_path());
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext(), new ClickListener() {
+                    @Override
+                    public void onPositionClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onLongClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
 
             @Override
@@ -206,13 +230,26 @@ public class MainActivity extends AppCompatActivity
 
         myService service = Client.getClient().create(myService.class);
         Call<MoviesResponse> call = service.getTopRatedMovies(API_KEY);
-        call.enqueue(new Callback<MoviesResponse>() {
+        call.enqueue(new Callback<MoviesResponse>()
+        {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                 int statusCode = response.code();
                 List<Movie> movies = response.body().getResults();
                 Log.d(Tag, "my responce is .. " + response.body().getResults().get(0).getBackdrop_path());
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext(), new ClickListener() {
+                    @Override
+                    public void onPositionClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onLongClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
 
             @Override
@@ -235,7 +272,19 @@ public class MainActivity extends AppCompatActivity
                 int statusCode = response.code();
                 List<Movie> movies = response.body().getResults();
                 Log.d(Tag, "my responce is .. " + response.body().getResults().get(0).getBackdrop_path());
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext(), new ClickListener() {
+                    @Override
+                    public void onPositionClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onLongClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked at long position" +position, Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
 
             @Override
@@ -259,7 +308,19 @@ public class MainActivity extends AppCompatActivity
                 int statusCode = response.code();
                 List<Movie> movies = response.body().getResults();
                 Log.d(Tag, "my responce is .. " + response.body().getResults().get(0).getBackdrop_path());
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
+                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext(), new ClickListener() {
+                    @Override
+                    public void onPositionClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onLongClicked(int position)
+                    {
+                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
 
             @Override

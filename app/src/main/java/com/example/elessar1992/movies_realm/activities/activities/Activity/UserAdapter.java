@@ -59,7 +59,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder>
 
     public class UserHolder extends RecyclerView.ViewHolder
     {
-
         //public AppCompatTextView textViewId;
         public AppCompatTextView textViewName;
         public AppCompatTextView textViewEmail;

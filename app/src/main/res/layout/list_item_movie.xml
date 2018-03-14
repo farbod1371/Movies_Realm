@@ -78,6 +78,7 @@
             android:layout_toStartOf="@+id/thumbnail" />
 
         <Button
+            android:id="@+id/save"
             android:textSize="7dp"
             android:text="Buy"
             android:layout_width="60dp"
