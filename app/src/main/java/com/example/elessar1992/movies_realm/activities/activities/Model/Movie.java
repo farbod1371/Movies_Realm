@@ -5,13 +5,15 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.RealmObject;
+
 /**
  * Created by elessar1992 on 3/8/18.
  */
 
 public class Movie
 {
-    @SerializedName("posterPath")
+    //@SerializedName("posterPath")
     private String poster_path;
     @SerializedName("adult")
     private boolean adult;
@@ -19,7 +21,7 @@ public class Movie
     private String overview;
     //@SerializedName("releaseDate")
     private String release_date;
-    @SerializedName("genreIds")
+    //@SerializedName("genreIds")
     private List<Integer> genreIds = new ArrayList<Integer>();
     @SerializedName("id")
     private Integer id;

@@ -168,13 +168,8 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onPositionClicked(int position)
                     {
-                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
-                    }
 
-                    @Override
-                    public void onLongClicked(int position)
-                    {
-                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
                     }
                 }));
             }
@@ -207,11 +202,6 @@ public class MainActivity extends AppCompatActivity
                         //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onLongClicked(int position)
-                    {
-                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
-                    }
                 }));
             }
 
@@ -244,11 +234,6 @@ public class MainActivity extends AppCompatActivity
                         //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onLongClicked(int position)
-                    {
-                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
-                    }
                 }));
             }
 
@@ -279,11 +264,6 @@ public class MainActivity extends AppCompatActivity
                         //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onLongClicked(int position)
-                    {
-                        //Toast.makeText(getApplicationContext(), "it clicked at long position" +position, Toast.LENGTH_SHORT).show();
-                    }
                 }));
             }
 
@@ -315,11 +295,6 @@ public class MainActivity extends AppCompatActivity
                         //Toast.makeText(getApplicationContext(), "it clicked at position" +position, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onLongClicked(int position)
-                    {
-                        //Toast.makeText(getApplicationContext(), "it clicked long at position" +position, Toast.LENGTH_SHORT).show();
-                    }
                 }));
             }
 
