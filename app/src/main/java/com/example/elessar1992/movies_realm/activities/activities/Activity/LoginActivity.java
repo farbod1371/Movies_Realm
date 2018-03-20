@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private AppCompatButton appCompatButtonLogin;
     private AppCompatButton showAllUsers;
+    private AppCompatButton showAllEvents;
 
     private AppCompatTextView textViewLinkRegister;
 
@@ -63,6 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         appCompatButtonLogin.setOnClickListener(this);
         textViewLinkRegister.setOnClickListener(this);
         showAllUsers.setOnClickListener(this);
+        showAllEvents.setOnClickListener(this);
     }
 
     private void initObjects()
@@ -85,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textInputEditTextPassword = (TextInputEditText) findViewById(R.id.textInputEditTextPassword);
 
         appCompatButtonLogin = (AppCompatButton) findViewById(R.id.appCompatButtonLogin);
+        showAllEvents = (AppCompatButton) findViewById(R.id.appCompatShowAllEvents);
         showAllUsers = (AppCompatButton) findViewById(R.id.appCompatShowAllUsers);
         textViewLinkRegister = (AppCompatTextView) findViewById(R.id.textViewLinkRegister);
 
@@ -108,6 +111,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent showAllUsers = new Intent(getApplicationContext(), ShowAllUserActivity.class);
                 startActivity(showAllUsers);
                 break;
+            case R.id.appCompatShowAllEvents:
+                Intent showAllEvents = new Intent(getApplicationContext(), ShowAllFavorite.class);
+                startActivity(showAllEvents);
         }
     }
 
