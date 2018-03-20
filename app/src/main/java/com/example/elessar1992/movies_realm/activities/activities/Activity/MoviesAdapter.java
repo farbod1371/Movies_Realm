@@ -49,7 +49,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class MyViewHolder extends RecyclerView.ViewHolder //implements View.OnClickListener
     {
         public TextView title;
         public TextView releaseDate;
@@ -77,12 +77,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             //popular = (TextView) view.findViewById(R.id.popular);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             moviesLayout = (LinearLayout) view.findViewById(R.id.movies_Layout);
-            save.setOnClickListener(this);
-            favorite.setOnClickListener(this);
+            //save.setOnClickListener(this);
+            //favorite.setOnClickListener(this);
         }
 
 
-        @Override
+        /*@Override
         public void onClick(View v)
         {
             if(v.getId() == favorite.getId())
@@ -100,7 +100,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
             listenerRef.get().onPositionClicked(getAdapterPosition());
 
-        }
+        }*/
 
 
     }
@@ -115,31 +115,27 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder viewHolder, int i)
+    public void onBindViewHolder(final MyViewHolder viewHolder,final int i)
     {
-        Movie movie = movies.get(i);
         viewHolder.title.setText(movies.get(i).getTitle());
         viewHolder.releaseDate.setText(movies.get(i).getRelease_date());
         viewHolder.overview.setText(movies.get(i).getOverview());
         viewHolder.overview.setMovementMethod(new ScrollingMovementMethod());
         viewHolder.score.setText(movies.get(i).getVote_average().toString());
-        /*viewHolder.save.setOnClickListener(new View.OnClickListener() {
+        viewHolder.save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                //Intent moreinfo = new Intent(context, RegistrationActivity.class);
-                //context.startActivities(moreinfo);
+                Intent moreinfo = new Intent(context, MoreInfoActivity.class);
+                moreinfo.putExtra("TITLE",movies.get(i).getTitle());
+                moreinfo.putExtra("REALEASEDATE",movies.get(i).getRelease_date());
+                moreinfo.putExtra("OVERVIEW",movies.get(i).getOverview());
+                moreinfo.putExtra("SCORE",movies.get(i).getVote_average().toString());
+                moreinfo.putExtra("IMAGE",movies.get(i).getPoster_path());
+                context.startActivity(moreinfo);
 
             }
-        });*/
-        //viewHolder.popular.setText(movies.get(i).getPopularity().toString());
-        //String poster = "https://image.tmdb.org/t/p/original" + movies.get(i).getPosterPath();
-        //String image = movies.get(i).getId() + movies.get(i).getPosterPath();
-        //String image = movies.get(i).getPosterPath();
-        /*Glide.with(context)
-                .load(image)
-                .placeholder(R.drawable.load)
-                .into(viewHolder.thumbnail);*/
+        });
 
         Picasso.with(context)
                 .load("https://image.tmdb.org/t/p/original/" + movies.get(i).getPoster_path())
@@ -147,11 +143,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
                 //.placeholder(R.drawable.placeholder2)
                 .into(viewHolder.thumbnail);
 
-        /*Picasso.with(context)
-                .load("https://upload.wikimedia.org/wikipedia/commons/a/a8/IFL_Small.jpg")
-                //.resize(150,100)
-                .placeholder(R.drawable.placeholder2)
-                .into(viewHolder.thumbnail);*/
 
     }
 
