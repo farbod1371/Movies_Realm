@@ -50,7 +50,9 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.navigator_action);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         myusername = (TextView) findViewById(R.id.myusername);
-        myusername.setText("Hello " + this.getIntent().getStringExtra( "USERNAME"));
+        String myUsername = this.getIntent().getStringExtra( "USERNAME");
+        myusername.setText(myUsername);
+        myusername.setAlpha(0);
 
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity
         }
 
         NavigationView navigation = (NavigationView) findViewById(R.id.nav_view);
+        TextView navUsername = (TextView) navigation.getHeaderView(0).findViewById(R.id.navUsername);
+        navUsername.setText("Welcome Back  " + myUsername);
+
         navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
 

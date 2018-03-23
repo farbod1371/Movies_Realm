@@ -17,6 +17,7 @@ public class User extends RealmObject
     private String username;
     private String email;
     private String password;
+    private RealmList<Event> events;
 
 
     public int getId()
@@ -79,4 +80,11 @@ public class User extends RealmObject
         this.password = password;
     }
 
+    public RealmList<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(RealmList<Event> events) {
+        this.events = events;
+    }
 }
